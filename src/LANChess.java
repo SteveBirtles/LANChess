@@ -35,7 +35,7 @@ public class LANChess extends JFrame
 
         try
         {
-            Server server = new Server(8081);
+            Server server = new Server(80);
             server.setHandler(new LANChessServer(board));
             server.start();
             System.out.println("Server is live on " + LANChessServer.getMyNetworkAdapter());
