@@ -319,7 +319,8 @@ public class ChessBoard extends JPanel implements ActionListener {
 
                     try
                     {
-                        url = new URL( "http://" + LANChess.opponent + "/set?position=" + position + "&value=" + square[y][x] + "&unmoved=" + unmoved[y][x]);
+                        int port = 8081;
+                        url = new URL( "http://" + LANChess.opponent + port + ":/set?position=" + position + "&value=" + square[y][x] + "&unmoved=" + unmoved[y][x]);
                         con = (HttpURLConnection) url.openConnection();
                         con.setRequestMethod("GET");
                         responseCode = con.getResponseCode();
