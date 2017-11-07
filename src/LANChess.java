@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 public class LANChess extends JFrame
 {
 
+    public static int port = 8081;
     public static String opponent = null;
 
     public LANChess()
@@ -35,7 +36,7 @@ public class LANChess extends JFrame
 
         try
         {
-            Server server = new Server(8081);
+            Server server = new Server(port);
             server.setHandler(new LANChessServer(board));
             server.start();
             System.out.println("Server is live on " + LANChessServer.getMyNetworkAdapter());
