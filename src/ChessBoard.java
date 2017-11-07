@@ -364,7 +364,7 @@ public class ChessBoard extends JPanel implements ActionListener {
 
                         try
                         {
-                            URL url = new URL( "http://" + LANChess.opponent + "/move?start=" + start + "&end=" + end );
+                            URL url = new URL( "http://" + LANChess.opponent + ":" + LANChess.port + "/move?start=" + start + "&end=" + end );
                             HttpURLConnection con = (HttpURLConnection) url.openConnection();
                             con.setRequestMethod("GET");
                             int responseCode = con.getResponseCode();
@@ -376,7 +376,7 @@ public class ChessBoard extends JPanel implements ActionListener {
                                 if (square[cursorY][cursorX] == 1) position = columns[cursorX] + rows[cursorY + 1];
                                 if (square[cursorY][cursorX] == 7) position = columns[cursorX] + rows[cursorY - 1];                                
 
-                                new URL( "http://" + LANChess.opponent + "/move?position=" + position + "&value=0&unmoved=false" );
+                                new URL( "http://" + LANChess.opponent + ":" + LANChess.port + "/move?position=" + position + "&value=0&unmoved=false" );
                                 con = (HttpURLConnection) url.openConnection();
                                 con.setRequestMethod("GET");
                                 responseCode = con.getResponseCode();
